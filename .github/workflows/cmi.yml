@@ -53,11 +53,12 @@ jobs:
 
       - name: Run tests
         run: pytest test/ -v --cov=main --cov-report=xml
-  run:
+
+run:
     name: Run Script
     runs-on: ubuntu-latest
-    needs: test
-    if: github.event_name != 'pull_request'
+    needs: test                        # only runs if tests pass
+    if: github.event_name != 'pull_request'  # don't run on PRs, only main + schedule
 
     steps:
       - uses: actions/checkout@v4
@@ -66,15 +67,15 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Install Dependencies
+      - name: Install dependencies
         run: pip install -r requirements.txt
 
       - name: Run image report script
-        run: python main/main.py .  reports.csv
+        run: python main/main.py . report.csv
 
-      -name: Upload report as artifact
-       uses: actions/upload-artifact@v4
-       with:
-        name: image-report
-        path: report.csv
-        retention-days: 15
+      - name: Upload report as artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: image-report
+          path: report.csv
+          retention-days: 30 
