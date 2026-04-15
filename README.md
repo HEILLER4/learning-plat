@@ -1,2 +1,2 @@
 # learning-plat
-![CI](https://github.com/HEILLER4/learning-plat/actions/workflows/ci.yml/badge.svg)
+![CI](https://github.com/HEILLER4/learning-plat/actions/workflows/cmi.yml/badge.svg)
