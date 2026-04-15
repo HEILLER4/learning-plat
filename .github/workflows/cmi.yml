@@ -54,7 +54,7 @@ jobs:
       - name: Run tests
         run: pytest test/ -v --cov=main --cov-report=xml
 
-run:
+  run:
     name: Run Script
     runs-on: ubuntu-latest
     needs: test                        # only runs if tests pass
@@ -78,4 +78,4 @@ run:
         with:
           name: image-report
           path: report.csv
-          retention-days: 30 
+          retention-days: 30
