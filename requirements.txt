@@ -1,4 +1,4 @@
 ruff
 pytest
-request
+requests
 boto3
