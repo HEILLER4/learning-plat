@@ -1,2 +1,2 @@
 # learning-plat
-test-site
+![CI](https://github.com/HEILLER4/learning-plat/actions/workflows/ci.yml/badge.svg)
