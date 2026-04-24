@@ -5,7 +5,3 @@ boto3
 opencv-python-headless
 numpy
 pytest-cov
-torch
-torch.nn
-pytorch
-
