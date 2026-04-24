@@ -5,7 +5,7 @@ from sklearn.model_selection import train_test_split, cross_val_score
 from sklearn.metrics import classification_report, confusion_matrix
 from sklearn.dummy import DummyClassifier
 import matplotlib.pyplot as plt
-import seaborn as sns
+
 np.random.seed(42)
 n = 5000
 
