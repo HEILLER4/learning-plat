@@ -6,8 +6,8 @@ on:
   pull_request:
     branches: ["main"]
   schedule:
-    - cron: "0 9 * * *"  # runs every day at 9:00 AM UTC
-  workflow_dispatch:       # lets you trigger it manually from GitHub UI
+    - cron: "0 9 * * *"  # Auto run at 9 
+  workflow_dispatch:       # Manual trigger
 
 jobs:
   lint:
@@ -52,7 +52,7 @@ jobs:
         run: pip install -r requirements.txt
 
       - name: Run tests
-        run: pytest test/ -v
+        run: pytest test/ -v          # test run before running Main script
 
   run:
     name: Run Script
@@ -71,11 +71,11 @@ jobs:
         run: pip install -r requirements.txt
 
       - name: Run image report script
-        run: python main/main.py test_img report.csv
+        run: python main/main.py test_img report.csv           # main script -> folder or file -> csv
 
       - name: Upload report as artifact
         uses: actions/upload-artifact@v4
         with:
           name: image-report
           path: report.csv
-          retention-days: 30           # keeps the report for 30 days
+          retention-days: 30           # report retention
